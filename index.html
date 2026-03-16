@@ -785,10 +785,19 @@ body {
 }
 
 /* ═══════════════════════════════════════
+   SCROLL PROGRESS BAR
+═══════════════════════════════════════ */
+#scroll-progress {
+  position:fixed; top:0; left:0; height:3px; z-index:999;
+  background:linear-gradient(90deg, var(--blue), var(--cyan), var(--green));
+  width:0%; transition:width 0.1s;
+}
+
+
+/* ═══════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════ */
 @media(max-width:800px){
-}
 .timeline-section{
   max-width: 800px;
   margin-inline: auto;
@@ -799,25 +808,45 @@ body {
   width: clamp(44px, 9vw, 72px);
   flex: 0 0 auto;                /* critical: no shrinking/overlap */
   box-sizing: border-box;
-  padding: clamp(8px, 1.2vw, 12px) clamp(6px, 1vw, 10px);
+  padding: clamp(9px, 1.2vw, 12px) clamp(9px, 1vw, 10px);
   container-type: inline-size;
 }
+.phase-num{
+  font-size: clamp(4px, 22cqi, 9px);  /* ~22% of card width */
+  line-height: 1.15;
+  text-align: center;
+}
 .phase-title{
-  font-size: clamp(1rem, 5vw+1rem, 4rem);}
+  font-size: clamp(4px, 22cqi, 9px);  /* ~22% of card width */
+  line-height: 1.15;
+  text-align: center;
+}
+.phase-months{
+  font-size: clamp(4px, 12cqi, 6px); /* ~18% of card width */
+  line-height: 1.15;
+  text-align: center;
+
+}
   .gate-label { width:40px; font-size:6px; }
   .gate-tooltip { display:none; }
   .gate-item.is-open .gate-tooltip { display:block; }
   .detail-panel { padding:0 16px 60px; }
   .year-banners { padding:0 16px 40px; flex-wrap:wrap; }
 
-@supports not (font-size: 1cqi){
+@media(max-width:900px){
+}.phases-row { gap:0; }
+  .phase-card { width:40px; padding:10px 6px; }
+  .phase-title { font-size: clamp(2rem, 5vw+1rem, 5rem); }
+  .phase-node{
+  width: clamp(18px, 30cqi, 26px);     /* ~30% of card width */
+  height: clamp(18px, 30cqi, 26px);
+  font-size: clamp(9px, 18cqi, 12px);  /* ~18% of card width */
 }
-  .phase-title{ font-size: clamp(5px, 1.8vw, 8px); }
-  .phase-node { width: clamp(18px, 3.8vw, 26px); height: clamp(18px, 3.8vw, 26px); }
-  .phase-label { font-size: clamp(6px, 1.6vw, 10px); }
-  .gate-label { font-size: clamp(4px, 1.6vw, 6px); }
-  .phase-node { width:20px; height:20px; font-size:5px; margin-top:88px; }
-  .gate-diamond { width:15px; height:15px; margin-top:97px; }
+.gate-diamond { width:20px; height:20px; margin-top:97px; }
+.gate-label{
+  font-size: clamp(3px, 18cqi, 6px);
+  line-height: 1.1
+}
 
 </style>
 </head>
